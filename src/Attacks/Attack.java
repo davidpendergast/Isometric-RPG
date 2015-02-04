@@ -72,6 +72,8 @@ public abstract class Attack implements WorldObject {
 		this.animation = new Animation(id);
 		this.source = source;
 		this.hit_actors = new HashSet<Actor>();
+		
+		moveTo(circle.center());
 	}
 	
 	/**
@@ -144,6 +146,7 @@ public abstract class Attack implements WorldObject {
 		Tile t1 = world.getTileAtCoords(v1);
 		
 		if(t0 == t1){
+			tile = t0;
 			return true;
 		}
 		else{
