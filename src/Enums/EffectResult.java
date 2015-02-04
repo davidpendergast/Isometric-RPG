@@ -1,0 +1,18 @@
+package Enums;
+
+public enum EffectResult {
+	
+	GIVE_POISON, 
+	GIVE_BURN, 
+	
+	REMOVE_POISON, 
+	REMOVE_BURN,
+	REMOVE_ALL_STATUSES,
+	
+	GIVE_SMALL_HEAL,
+	GIVE_MEDIUM_HEAL,
+	GIVE_LARGE_HEAL,
+	
+	
+
+}
