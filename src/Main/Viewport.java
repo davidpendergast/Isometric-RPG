@@ -3,6 +3,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import Actors.Actor;
 import Enums.RenderStrategy;
@@ -189,6 +195,10 @@ public class Viewport {
 			}
 		}
 		
+		if(input_handler.new_keys.contains(KeyMappings.take_screenshot)){
+			saveScreenShot();
+		}
+		
 		updateWorldMouseEvents(input_handler);
 	}
 	
@@ -217,6 +227,35 @@ public class Viewport {
 	
 	private Vector toWorldVector(Point p){
 		return getWorldCoordinates(new Vector(p.x, p.y));
+	}
+	
+	public void saveScreenShot(){
+		BufferedImage img = new BufferedImage(cam_w, cam_h, BufferedImage.TYPE_INT_ARGB);
+		Graphics g = img.getGraphics();
+		render(g);
+		
+		try {
+			File screen_shots_folder = new File("screenshots/");
+			File[] list = screen_shots_folder.listFiles();
+			if(list == null){
+					throw new FileNotFoundException("Could not find screenshots folder.");
+			}
+			int num_files = list.length;
+			
+			String new_img_name = "screenshot_"+num_files;
+			File output_file = new File("screenshots/"+new_img_name+".png");
+			ImageIO.write(img, "png", output_file);
+		} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+			
+		
+		
 	}
 
 }

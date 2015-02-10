@@ -20,6 +20,13 @@ import Main.Vector;
 import Main.World;
 import Main.WorldObject;
 
+/**
+ * Parent of all attacks in the game. Is essentially just a circle which can be moved and 
+ * can collide with actors. Core functionality of Attacks like movement between tiles is
+ * handled here, but more specialized behavior is left for child classes.
+ * @author dpendergast
+ *
+ */
 public abstract class Attack implements WorldObject {
 	
 	protected Circle circle;
@@ -153,7 +160,7 @@ public abstract class Attack implements WorldObject {
 			if(t1 != null){
 				boolean successful_addition = t1.addActor(this);
 				if(successful_addition){
-					System.out.println("Attack: Setting value of tile to "+t1);
+//					System.out.println("Attack: Setting value of tile to "+t1);
 					tile = t1;
 					if(t0 != null){
 						t0.removeActor(this);
@@ -191,15 +198,9 @@ public abstract class Attack implements WorldObject {
 		}
 	}
 	
-	public void removeSelfFromWorld(){
-//		moveTo(this.center());
-//		world.removeAttack(this);
-		System.out.println("Attack: pre del tile="+tile);
-		
+	public void removeSelfFromWorld(){		
 		if(tile != null)
 			tile.removeActor(this);
-		
-		System.out.println("Attack: postdel tile="+tile);
 	}
 	
 	public void terminate(){

@@ -12,6 +12,9 @@ public enum TileID {
 		return id_list[rand];
 	}
 	
+	/**
+	 * @return
+	 */
 	public boolean isTraversable(){
 		switch(this){
 			case OCEAN:
@@ -22,6 +25,21 @@ public enum TileID {
 				return true;
 		}
 		
+	}
+	
+	/**
+	 * Converts given string to enum of type TileID.
+	 * @return TileID with equivalent name (non-case specific), or TileID.GRASS if none exists.
+	 */
+	public TileID getTileID(String name){
+		TileID[] values = TileID.values();
+		for(TileID id : values){
+			if(name.equalsIgnoreCase(id.toString())){
+				return id;
+			}
+		}
+		
+		return GRASS;
 	}
 	
 	public static Color getIDColor(TileID id){

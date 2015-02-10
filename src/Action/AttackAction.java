@@ -7,7 +7,12 @@ import Enums.AnimationID;
 import Enums.Team;
 import Main.World;
 
-
+/**
+ * An action which places an Attack object into the world. Holds attacking actor stationary
+ * for the duration of the cast time of the attack.
+ * @author dpendergast
+ *
+ */
 public class AttackAction extends Action {
 
 	Attack att;

@@ -3,6 +3,7 @@ package Attacks;
 import Actors.Actor;
 import Enums.AttackID;
 import Enums.Team;
+import Main.Effect;
 import Main.Vector;
 
 public class FireAOEAttack extends BasicAOEAttack {
@@ -15,6 +16,14 @@ public class FireAOEAttack extends BasicAOEAttack {
 	
 	public void move(float dt){
 		circle.setR(r()+growth_rate*dt);
+	}
+	
+	public void hitActor(Actor a){
+		super.hitActor(a);
+		
+		if(a.getTeam().isTeam(target_team)){
+			a.stats().addEffect(Effect.getBurnEffect(10, source));
+		}
 	}
 
 }

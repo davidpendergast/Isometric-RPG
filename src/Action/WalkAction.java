@@ -5,7 +5,12 @@ import Enums.AnimationID;
 import Main.Vector;
 import Main.World;
 
-
+/**
+ * Actor attempts to walk toward target location. The walk action is completed when
+ * actor reaches position, or its tick limit expires.
+ * @author dpendergast
+ *
+ */
 public class WalkAction extends Action {
 
 	Vector target;

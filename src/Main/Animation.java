@@ -86,6 +86,8 @@ public class Animation {
 		return res;
 	}
 	
+	public int getFrameIndex(){ return frame_index;}
+	
 	public Animation(ActorID actor_id){
 		this.actor_id = actor_id;
 		animation_chart = actor_charts[actor_id.ordinal()];

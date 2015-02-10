@@ -11,6 +11,13 @@ import Main.InputHandler;
 import Main.Vector;
 import Main.World;
 
+
+/**
+ * Class of all enemies in the game.
+ *  
+ * @author dpendergast
+ *
+ */
 public class EnemyActor extends Actor {
 
 	public EnemyActor(ActorID id, Circle circle, int weight, World world) {
@@ -30,6 +37,9 @@ public class EnemyActor extends Actor {
 
 	@Override
 	public void chooseNextAction() {
+		
+		Actor[] actors_in_range = world.getWorldSearcher().getActorsInCircle(new Circle(x(), y(), r() +10));
+		//TODO add some behavior
 	
 		Vector target = new Vector(1,0);
 		target = target.rotate((float)(Math.random()*Math.PI*2));

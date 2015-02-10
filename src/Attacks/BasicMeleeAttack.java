@@ -8,6 +8,13 @@ import Main.Circle;
 import Main.Vector;
 import Main.World;
 
+
+/**
+ * Parent of all melee attacks.  Is implemented in kind of a strange way right now. A
+ * different aproach may be better.
+ * @author dpendergast
+ *
+ */
 public class BasicMeleeAttack extends Attack {
 
 	final static int MELEE_TICK_LIMIT = 20;
@@ -52,7 +59,7 @@ public class BasicMeleeAttack extends Attack {
 	@Override
 	public void beforeDeletion() {
 		if(victim != null){
-			victim.stats().giveDamage(damage_type, this);
+			victim.stats().giveDamage(damage_type, this, true);
 		}
 		
 	}

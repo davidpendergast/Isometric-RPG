@@ -10,6 +10,11 @@ import Main.InputHandler;
 import Main.Vector;
 import Main.World;
 
+/**
+ * Class of all the neutral NPCs in the game.
+ * @author dpendergast
+ *
+ */
 public class NeutralActor extends Actor {
 
 	public NeutralActor(ActorID id, Circle circle, int weight, World world) {

@@ -28,8 +28,6 @@ public class _Initializer {
 		for(int i = 0; i < 100; i++){
 			ActorFactory.getNewActor(ActorID.SCARY, 400+i, i*50, world, 0);
 			ActorFactory.getNewActor(ActorID.SCARY, 600+i, i*50, world, 0);
-//			new EnemyActor(400+i, i*50, world);
-//			new EnemyActor(600+i, i*50, world);
 			ActorFactory.getNewActor(ActorID.BUNNY, 400+i, i*50, world, 0);
 		}
 		viewport.setFocusActor(a);

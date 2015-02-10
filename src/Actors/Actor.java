@@ -9,6 +9,7 @@ import Enums.ActionStatus;
 import Enums.ActorID;
 import Enums.AnimationID;
 import Enums.RenderStrategy;
+import Enums.StatusID;
 import Enums.Team;
 import Main.ActionQueue;
 import Main.ActorStats;
@@ -22,7 +23,12 @@ import Main.Vector;
 import Main.World;
 import Main.WorldObject;
 
-
+/**
+ * Parent class of all actors. Implements almost all of the core functionality for 
+ * actors in the game.
+ * @author dpendergast
+ *
+ */
 public abstract class Actor implements WorldObject {
 	
 	//stores size and location data of the actor
@@ -102,7 +108,12 @@ public abstract class Actor implements WorldObject {
 			
 			g.drawImage(img, (int)iso_v.x() - 16 - x_offset, (int)iso_v.y() - 64 - y_offset + 4, 32, 64, null);
 			
-			
+			for(StatusID id : stats().getStatuses()){
+				int i = animation.getFrameIndex();
+				BufferedImage stat_img = ImageHandler.getImage(id, i, true);
+				g.drawImage(stat_img, (int)iso_v.x() - 16 - x_offset, (int)iso_v.y() - 64 - y_offset + 4, 32, 64, null);
+//				System.out.println("Actor - rendering: "+id);
+			}
 		}
 	}
 	

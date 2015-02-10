@@ -1,7 +1,9 @@
 package Enums;
 
-public class EffectTimeframe {
+public enum EffectTimeframe {
 	
-//	PERMANENT, UNTIL_TRIGGERED,
+	PERMANENT, ARMOR, TIME, NUM_ACTIVATE
+	
+
 
 }

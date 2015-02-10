@@ -102,11 +102,6 @@ public class World {
 		
 		attack_handler.updateAttacks(input_handler, dt);
 		
-//		for(int x = 0; x < x_size; x++){
-//			for(int y = 0; y < y_size; y++){
-//				tiles[x][y].updateSelf(input_handler, dt);
-//			}
-//		}
 	}
 	
 	public void solveAllCollisions(){
@@ -187,26 +182,21 @@ public class World {
 		}
 		
 		return false;
-			
-//		if(attack_handler.isFull())
-//			attack_handler.sortArrays();
-//		
-//		return attack_handler.add(a);
 	}
 	
-	public boolean removeAttack(Attack a){
-		System.out.println("World - removing attack: "+a );
-//		Tile t = getTileAtCoords(a.center());
-//		System.out.println("Wordl - t = "+t);
-		Tile t = a.getTile();
-		if(t != null){
-			return t.removeActor(a);
-		}
-		
-		
-		return false;
-//		return attack_handler.remove(a);
-	}
+//	public boolean removeAttack(Attack a){
+//		System.out.println("World - removing attack: "+a );
+////		Tile t = getTileAtCoords(a.center());
+////		System.out.println("Wordl - t = "+t);
+//		Tile t = a.getTile();
+//		if(t != null){
+//			return t.removeActor(a);
+//		}
+//		
+//		
+//		return false;
+////		return attack_handler.remove(a);
+//	}
 	
 	public AttackHandler getAttackHandler(){
 		return attack_handler;

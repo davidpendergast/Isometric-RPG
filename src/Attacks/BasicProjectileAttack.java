@@ -33,9 +33,9 @@ public class BasicProjectileAttack extends Attack {
 	public void hitActor(Actor a) {
 		if(!hit_actors.contains(a) && a.getTeam().isTeam(target_team)){
 			terminate();
-			a.stats().giveDamage(damage_type, this);
-			a.stats().giveBurn(source.stats().burnDamage(), 5, burn_chance);
-			a.stats().givePoison(source.stats().poisonDamage(), 5, poison_chance);
+			a.stats().giveDamage(damage_type, this, true);
+//			a.stats().giveBurn(source.stats().burnDamage(), 5, burn_chance);
+//			a.stats().givePoison(source.stats().poisonDamage(), 5, poison_chance);
 		}
 		
 		hit_actors.add(a);

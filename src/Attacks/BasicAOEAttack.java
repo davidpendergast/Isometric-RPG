@@ -12,6 +12,12 @@ import Main.Circle;
 import Main.Vector;
 import Main.World;
 
+/**
+ * Parent of area-of-effect attacks in the game. Is an attack which may grow or shrink, 
+ * and doesn't remove itself after touching an actor.
+ * @author dpendergast
+ *
+ */
 public class BasicAOEAttack extends BasicProjectileAttack {
 	
 	static final int AOE_TICK_LIMIT = 300;
@@ -30,7 +36,7 @@ public class BasicAOEAttack extends BasicProjectileAttack {
 	@Override
 	public void hitActor(Actor a) {
 		if(!hit_actors.contains(a) && a.getTeam().isTeam(target_team)){
-			a.stats().giveDamage(DamageType.MELEE, this);
+			a.stats().giveDamage(DamageType.MELEE, this, true);
 		}
 		
 		hit_actors.add(a);

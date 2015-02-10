@@ -20,6 +20,11 @@ import Main.KeyMappings;
 import Main.Vector;
 import Main.World;
 
+/**
+ * Class for the user-controlled actor of the game. Handles inputs and such.
+ * @author dpendergast
+ *
+ */
 public class PlayerActor extends Actor {
 
 	public PlayerActor(float x, float y, World world) {

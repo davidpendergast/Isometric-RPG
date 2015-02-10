@@ -4,6 +4,11 @@ import Actors.Actor;
 import Enums.ActionStatus;
 import Main.World;
 
+/**
+ * Actor does nothing for the duration of the IdleAction.
+ * @author dpendergast
+ *
+ */
 public class IdleAction extends Action {
 
 	public IdleAction(Actor a, World w, int tick_limit) {

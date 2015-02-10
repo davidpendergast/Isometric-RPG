@@ -22,4 +22,6 @@ public class KeyMappings {
 	public static int lock_on_character = KeyEvent.VK_F;
 	
 	public static int stand_still = KeyEvent.VK_SHIFT;
+	
+	public static int take_screenshot = KeyEvent.VK_F1;
 }

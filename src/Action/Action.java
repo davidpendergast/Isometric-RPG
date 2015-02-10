@@ -3,7 +3,11 @@ import Actors.Actor;
 import Enums.ActionStatus;
 import Main.World;
 
-
+/**
+ * The abstract parent class of all actions in the game.
+ * @author dpendergast
+ *
+ */
 public abstract class Action {
 
 	protected Actor actor;

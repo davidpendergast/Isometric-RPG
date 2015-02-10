@@ -3,6 +3,8 @@ package Main;
 import Actors.Actor;
 import Attacks.Attack;
 import Enums.DamageType;
+import Enums.EffectTrigger;
+import Enums.StatusID;
 
 public class ActorStats {
 	private Actor actor;
@@ -26,6 +28,22 @@ public class ActorStats {
 	public ActorStats(Actor a){
 		this.actor = a;
 		effect_handler = new EffectHandler();
+	}
+	
+	public void addEffect(Effect effect){
+		effect_handler.addEffect(effect);
+	}
+	
+	public void removeEffect(Effect effect){
+		effect_handler.removeEffect(effect);
+	}
+	
+	public void sendTrigger(EffectTrigger trigger, Actor source){
+		//TODO
+	}
+	
+	public StatusID[] getStatuses(){
+		return effect_handler.getStatuses();
 	}
 	
 	/**
@@ -81,42 +99,42 @@ public class ActorStats {
 		return hp > 0;
 	}
 	
-	public void giveDamage(DamageType dt, Attack source){
-		System.out.println("ActorStats - recieving dmg from "+source);
+	public void giveDamage(DamageType dt, Attack source, boolean trigger_effects){
+//		System.out.println("ActorStats - recieving dmg from "+source);
 		hp -= source.damage();
 	}
 	
-	/**
-	 * Gives actor a burn which deals given damage for given number of turns. Total damage dealt will be dmg*ticks, if burn is successfully given.  
-	 * @param dmg damage recieved per pulse
-	 * @param pulses number of times burn damage is recieved 
-	 * @param chance chance of successfully giving burn.
-	 */
-	public boolean giveBurn(int dmg, int pulses, float chance){
-		if(Math.random() < chance && dmg * pulses >= burn_dmg * burn_pulses){
-			burn_dmg = dmg;
-			burn_pulses = pulses;
-			return true;
-		}
-		
-		return false;
-	}
-	
-	/**
-	 * Gives actor poison which deals given damage for given number of turns. Total damage dealt will be dmg*ticks, if poison is successfully given.  
-	 * @param dmg damage recieved per pulse
-	 * @param pulses number of times burn damage is recieved 
-	 * @param chance chance of successfully giving burn.
-	 */
-	public boolean givePoison(int dmg, int pulses, float chance){
-		if(Math.random() < chance && dmg * pulses >= poison_dmg * poison_pulses){
-			poison_dmg = dmg;
-			poison_pulses = pulses;
-			return true;
-		}
-		
-		return false;
-	}
+//	/**
+//	 * Gives actor a burn which deals given damage for given number of turns. Total damage dealt will be dmg*ticks, if burn is successfully given.  
+//	 * @param dmg damage recieved per pulse
+//	 * @param pulses number of times burn damage is recieved 
+//	 * @param chance chance of successfully giving burn.
+//	 */
+//	public boolean giveBurn(int dmg, int pulses, float chance){
+//		if(Math.random() < chance && dmg * pulses >= burn_dmg * burn_pulses){
+//			burn_dmg = dmg;
+//			burn_pulses = pulses;
+//			return true;
+//		}
+//		
+//		return false;
+//	}
+//	
+//	/**
+//	 * Gives actor poison which deals given damage for given number of turns. Total damage dealt will be dmg*ticks, if poison is successfully given.  
+//	 * @param dmg damage recieved per pulse
+//	 * @param pulses number of times burn damage is recieved 
+//	 * @param chance chance of successfully giving burn.
+//	 */
+//	public boolean givePoison(int dmg, int pulses, float chance){
+//		if(Math.random() < chance && dmg * pulses >= poison_dmg * poison_pulses){
+//			poison_dmg = dmg;
+//			poison_pulses = pulses;
+//			return true;
+//		}
+//		
+//		return false;
+//	}
 	
 	/**
 	 * Returns the actor's burn damage
